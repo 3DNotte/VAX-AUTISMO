@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autismo e Vaccinazioni nei Paesi NATO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f6f8;
+      color: #222;
+    }
+    header {
+      background: linear-gradient(to right, #2b5876, #4e4376);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: white;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #4e4376;
+    }
+    .plot-container {
+      margin-top: 30px;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AUTISMO E VACCINAZIONI NEI PAESI NATO</h1>
+    <p>Uno studio visuale e documentale sul periodo 1943–2025</p>
+  </header>
+
+  <nav>
+    <a href="#introduzione">Introduzione</a>
+    <a href="#cronologia">Cronologia</a>
+    <a href="#grafico">Grafico Interattivo</a>
+    <a href="#gap">Gap Post-Vaccinale</a>
+    <a href="#conclusioni">Conclusioni</a>
+  </nav>
+
+  <section id="introduzione">
+    <h2>Introduzione</h2>
+    <p>Questa ricerca analizza la possibile relazione tra l’aumento dei casi di disturbi dello spettro autistico e la crescita delle vaccinazioni pediatriche nei paesi della NATO. L’obiettivo non è dimostrare una tesi, ma offrire una rappresentazione storica accurata e visivamente esplorabile, supportata da dati, eventi chiave e un approccio critico ai concetti di correlazione e causalità.</p>
+  </section>
+
+  <section id="cronologia">
+    <h2>Cronologia sintetica</h2>
+    <ul>
+      <li><strong>1943:</strong> Leo Kanner pubblica il primo studio sull'autismo infantile.</li>
+      <li><strong>1971:</strong> Diffusione del vaccino MPR nei paesi NATO.</li>
+      <li><strong>2001:</strong> Adozione su larga scala del vaccino esavalente.</li>
+      <li><strong>2012:</strong> Polemiche internazionali su presunti legami MPR-autismo.</li>
+      <li><strong>2017:</strong> Nuove leggi sull’obbligatorietà vaccinale in molti paesi NATO.</li>
+    </ul>
+  </section>
+
+  <section id="grafico">
+    <h2>Grafico Interattivo – Diagnosi e Vaccinazioni</h2>
+    <div id="grafico_nato" class="plot-container"></div>
+    <script>
+      fetch("autismo_vaccini_NATO_1943_2025.html")
+        .then(response => response.text())
+        .then(html => {
+          const plotDiv = document.createElement("div");
+          plotDiv.innerHTML = html;
+          document.getElementById("grafico_nato").appendChild(plotDiv);
+        });
+    </script>
+  </section>
+
+  <section id="gap">
+    <h2>Analisi del Gap Temporale</h2>
+    <p>Per approfondire l’ipotesi di un effetto ritardato tra somministrazione del vaccino e sviluppo di sintomatologie autistiche, abbiamo incluso un’analisi con uno shift temporale medio di 1,25 anni. Questo aiuta a comprendere meglio se vi sia una sincronizzazione più precisa tra i fenomeni.</p>
+    <div id="grafico_gap" class="plot-container"></div>
+    <script>
+      fetch("autismo_vaccini_NATO_gap_postvaccinale.html")
+        .then(response => response.text())
+        .then(html => {
+          const plotDiv = document.createElement("div");
+          plotDiv.innerHTML = html;
+          document.getElementById("grafico_gap").appendChild(plotDiv);
+        });
+    </script>
+  </section>
+
+  <section id="conclusioni">
+    <h2>Conclusioni</h2>
+    <p>I dati mostrano chiaramente una coincidenza temporale tra l'aumento delle vaccinazioni pediatriche e l'aumento dei casi di autismo. Tuttavia, l’interpretazione causale richiede molto di più: meccanismi biologici dimostrabili, studi epidemiologici controllati e replicabili, e l’esclusione di fattori di confondimento. Questo studio non pretende di dare risposte definitive, ma intende offrire uno strumento per stimolare riflessione, ricerca e dibattito informato.</p>
+  </section>
+
+  <footer>
+    <p>Autismo & Vaccini NATO • Studio Visuale 2025 • Realizzato con Plotly & HTML5</p>
+  </footer>
+</body>
+</html>
